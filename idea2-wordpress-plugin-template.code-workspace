@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"phpcs.enable": true,
+		"phpcs.executablePath": "vendor/bin/phpcs",
+		"phpcs.composerJsonPath": "composer.json",
+		"phpcbf.executablePath": "${workspaceRoot}/vendor/bin/phpcbf",
+		"editor.renderWhitespace": "all",
+		"eslint.autoFixOnSave": true,
+		"phpcbf.onsave": true,
+		"phpcbf.documentFormattingProvider": false,
+		"phpcbf.debug": true
+	}
+}

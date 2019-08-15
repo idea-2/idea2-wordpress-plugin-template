@@ -16,8 +16,8 @@ services:
       - "front"
       - "back"
     volumes:
-      - "wp:/var/www/html:rw"
-      - "./src:/var/www/html/wp-content/plugins/"
+      - "wp:/var/www/html"
+      - "./plugins:/var/www/html/wp-content/plugins/"
       - ./logs:/var/log/:cached
 
   wp-cli:
@@ -30,9 +30,9 @@ services:
     networks:
       - "back"
     volumes:
-      - "wp:/var/www/html:rw"
-      - "./bin/install-wp.sh:/usr/local/bin/install-wp:ro"
-      - "./src:/var/www/html/wp-content/plugins/"
+      - "wp:/var/www/html"
+      - "./bin/install-wp.sh:/usr/local/bin/install-wp"
+      - "./plugins:/var/www/html/wp-content/plugins/"
   mysql:
     image: "mariadb:10.2"
     environment:

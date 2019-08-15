@@ -2,8 +2,9 @@
 phpcs.xml
 phpunit.xml
 vendor
-src/*
-!src/index.php
+plugins/*
+!plugins/index.php
+!plugins/my-plugin
 Thumbs.db
 wp-cli.local.yml
 node_modules/

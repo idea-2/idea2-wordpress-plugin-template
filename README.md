@@ -80,7 +80,7 @@ or use full command without alias
 
 ```sh
 
-docker-compose run --rm wp-cli wp [command]
+docker-compose run --rm wp-cli wp core update
 
 ```
 
@@ -91,6 +91,24 @@ Create new Plugin with WP-CLI:
 ```sh
 docker-compose run --rm wp-cli wp scaffold plugin my-plugin
 ```
+
+Adapt .gitignore to allow plugin
+
+```
+!plugins/my-plugin
+```
+
+Remove depreciated wordpress coding standard 'WordPress-VIP' from 'my-plugin/.phpcs.xml.dist'
+
+```xml
+	<!-- <rule ref="WordPress">
+		<exclude name="WordPress.VIP"/>
+	</rule> -->
+```
+
+## Install Dependencies
+
+Install dependencies with Composer: `php composer.phar install`
 
 ## Running tests (PHPUnit)
 

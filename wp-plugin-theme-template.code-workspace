@@ -10,9 +10,10 @@
 		"phpcs.composerJsonPath": "composer.json",
 		"phpcbf.executablePath": "${workspaceRoot}/vendor/bin/phpcbf",
 		"editor.renderWhitespace": "all",
-		"eslint.autoFixOnSave": true,
-		"phpcbf.onsave": true,
 		"phpcbf.documentFormattingProvider": false,
-		"phpcbf.debug": true
+		"phpcs.standard": "plugins/.phpcs.xml.dist",
+		"phpcbf.standard": "plugins/.phpcs.xml.dist",
+		"phpcs.autoConfigSearch": false,
+  		"editor.formatOnSave": false,
 	}
 }

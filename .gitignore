@@ -5,6 +5,8 @@ vendor
 plugins/*
 !plugins/index.php
 !plugins/my-plugin
+!plugins/gbo*
+!plugins/.phpcs.xml.dist
 Thumbs.db
 wp-cli.local.yml
 node_modules/

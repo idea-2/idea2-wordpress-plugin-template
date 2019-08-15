@@ -92,18 +92,29 @@ Create new Plugin with WP-CLI:
 docker-compose run --rm wp-cli wp scaffold plugin my-plugin
 ```
 
-Adapt .gitignore to allow plugin
+Adapt .gitignore to allow plugin (not necessary if plugin name starts with 'gbo-')
 
 ```
 !plugins/my-plugin
 ```
 
-Remove depreciated wordpress coding standard 'WordPress-VIP' from 'my-plugin/.phpcs.xml.dist'
+Remove not used phpcs file: 'my-plugin/.phpcs.xml.dist'. There is a general config file in the plugin root folder.
+
+Check plugin prefix for global functions
 
 ```xml
-	<!-- <rule ref="WordPress">
-		<exclude name="WordPress.VIP"/>
-	</rule> -->
+<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<!-- Value: replace the function, class, and variable prefixes used. Separate multiple prefixes with a comma. -->
+			<property name="prefixes" type="array" value="gbo"/>
+		</properties>
+	</rule>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<!-- Value: replace the text domain used. -->
+			<property name="text_domain" type="array" value="gbo"/>
+		</properties>
+	</rule>
 ```
 
 ## Install Dependencies
@@ -139,47 +150,15 @@ Now you are ready to run PHPUnit. Repeat this command as necessary:
 docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit phpunit
 ```
 
-## Changing the hostname
-
-You can change the hostname from the default `plugin.local` by adding a `.env`
-file at the project root and defining the `DOCKER_DEV_DOMAIN` environment
-variable:
-
-```
-DOCKER_DEV_DOMAIN=myplugin.local
-```
-
-## Seed MariaDB database
-
-The `mariadb` image supports initializing the database with content by mounting
-a volume to the database container at `/docker-entrypoint-initdb.d`. See the
-[MariaDB Docker docs][mariadb-docs] for more information.
-
-## Troubleshooting
-
-If your stack is not responding, the most likely cause is that a container has
-stopped or failed to start. Check to see if all of the containers are "Up":
-
-```
-docker-compose ps
-```
-
-If not, inspect the logs for that container, e.g.:
-
-```
-docker-compose logs wordpress
-```
-
 ## Useful commands
 
 ```
 wp core check-update && wp plugin list --update=available && wp theme list --update=available
 ```
 
-## Read More
-
-https://make.wordpress.org/cli/handbook/shell-friends/
-
-## Based on
+## More Documentation at (template is based on it)
 
 https://github.com/chriszarate/docker-compose-wordpress
+
+## Read More
+https://make.wordpress.org/cli/handbook/shell-friends/

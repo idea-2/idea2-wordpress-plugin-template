@@ -1,3 +1,2 @@
 <?php
-die('not allowed');
-?>
+// Silence is golden.

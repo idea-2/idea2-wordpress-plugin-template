@@ -8,13 +8,7 @@ and the WordPress unit testing suite.
 
 1. User Template or Clone this repo.
 
-2. Create new Plugin with WP-CLI:
-
-    ```
-    docker-compose run --rm wp-cli wp scaffold plugin my-plugin
-    ```
-
-3. Add `plugin.local` to `/etc/hosts`, e.g.:
+2. Add `plugin.local` to `/etc/hosts`, e.g.:
 
     ```
     127.0.0.1 plugin.local
@@ -43,14 +37,15 @@ information about starting, stopping, and interacting with your environment.
 
 ## Install WordPress
 
+navigate to `http://plugin.local/` and manually perform the famous five-second install.
+
+Alternatively, you can use the wp-cli
+
 ```sh
 docker-compose run --rm wp-cli install-wp
 ```
 
 Log in to `http://plugin.local/wp-admin/` with `wordpress` / `wordpress`.
-
-Alternatively, you can navigate to `http://plugin.local/` and manually perform
-the famous five-second install.
 
 ## WP-CLI
 
@@ -58,6 +53,43 @@ You will probably want to [create a shell alias][3] for this:
 
 ```sh
 docker-compose run --rm wp-cli wp [command]
+```
+
+For example on mac:
+
+```
+# ~/.bash_profile
+
+# alias for the WP-CLI in combination with Docker (https://github.com/idea-2/wp-plugin-theme-template)
+alias wp='docker-compose run --rm wp-cli wp'
+```
+
+Reload config
+
+```
+source ~/.bash_profile
+```
+
+## Update WordPress
+
+```sh
+wp core update && wp plugin update --all
+```
+
+or use full command without alias
+
+```sh
+
+docker-compose run --rm wp-cli wp [command]
+
+```
+
+## Setup New Plugin
+
+Create new Plugin with WP-CLI:
+
+```sh
+docker-compose run --rm wp-cli wp scaffold plugin my-plugin
 ```
 
 ## Running tests (PHPUnit)
@@ -120,6 +152,16 @@ If not, inspect the logs for that container, e.g.:
 docker-compose logs wordpress
 ```
 
-# Based on
+## Useful commands
+
+```
+wp core check-update && wp plugin list --update=available && wp theme list --update=available
+```
+
+## Read More
+
+https://make.wordpress.org/cli/handbook/shell-friends/
+
+## Based on
 
 https://github.com/chriszarate/docker-compose-wordpress

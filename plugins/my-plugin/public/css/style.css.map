@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"../../assets/css/style.scss",
+		"../../assets/css/_variables.scss"
+	],
+	"names": [],
+	"mappings": "AAAA;;;GAGG;AAEH,AAAA,IAAI,CAAA;EACH,WAAW,ECoBA,SAAS,EAAE,SAAS,EAAE,UAAU,GDnB3C;;AACD,AAAA,KAAK,CAAA;EACJ,SAAS,EAAE,KAAK,GAChB"
+}

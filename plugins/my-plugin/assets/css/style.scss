@@ -1,0 +1,11 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+@import "variables";
+body{
+	font-family: $font-main;
+}
+.test{
+	font-size: 1.5em;
+}

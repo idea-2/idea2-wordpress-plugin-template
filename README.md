@@ -119,7 +119,32 @@ Check plugin prefix for global functions
 
 ## Install Dependencies
 
-Install dependencies with Composer: `php composer.phar install`
+Install dependencies with Composer:
+
+```
+php composer.phar install
+```
+
+Install dependencies with NPM
+
+```
+npm install
+```
+
+## Setup SCSS
+
+1. adapt configuration for based on plugin name in package.json
+   Replace 'my-plugin' with actual plugin name
+
+```
+  "scripts": {
+    "build-task:scss-compile": "node-sass --source-map true plugins/my-plugin/assets/css/ -o plugins/my-plugin/public/css",
+    "build-task:autoprefixer": "postcss plugins/my-plugin/public/css/*.css --use autoprefixer -d plugins/my-plugin/public/css",
+    "sass:build": "npm-run-all -p build-task:*",
+    "sass:watch": "node-sass 'plugins/my-plugin/public/css/**/*.scss' -c 'npm run sass:build'",
+    "dev": "npm-run-all -p sass:*"
+  }
+```
 
 ## Running tests (PHPUnit)
 
@@ -152,6 +177,14 @@ docker-compose -f docker-compose.phpunit.yml run --rm wordpress_phpunit phpunit
 
 ## Useful commands
 
+Build CSS
+
+```
+npm run sass:build
+```
+
+Update WP (not working)
+
 ```
 wp core check-update && wp plugin list --update=available && wp theme list --update=available
 ```
@@ -161,4 +194,5 @@ wp core check-update && wp plugin list --update=available && wp theme list --upd
 https://github.com/chriszarate/docker-compose-wordpress
 
 ## Read More
+
 https://make.wordpress.org/cli/handbook/shell-friends/

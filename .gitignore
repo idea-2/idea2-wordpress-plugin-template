@@ -4,6 +4,7 @@ phpunit.xml
 vendor
 plugins/*
 !plugins/index.php
+!plugins/my-plugin
 !plugins/gbo-*
 !plugins/.phpcs.xml.dist
 Thumbs.db

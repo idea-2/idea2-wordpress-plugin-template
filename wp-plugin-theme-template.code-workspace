@@ -6,14 +6,15 @@
 	],
 	"settings": {
 		"phpcs.enable": true,
+		"phpcbf.enable": true,
+		"phpcs.autoConfigSearch": false,
 		"phpcs.executablePath": "vendor/bin/phpcs",
 		"phpcs.composerJsonPath": "composer.json",
-		"phpcbf.executablePath": "${workspaceRoot}/vendor/bin/phpcbf",
-		"editor.renderWhitespace": "all",
-		"phpcbf.documentFormattingProvider": false,
 		"phpcs.standard": "plugins/.phpcs.xml.dist",
-		"phpcbf.standard": "plugins/.phpcs.xml.dist",
-		"phpcs.autoConfigSearch": false,
-  		"editor.formatOnSave": false,
+		"phpcbf.standard": "~/src/jessica/gbo-order-details-internal/plugins/.phpcs.xml.dist",
+		"phpcbf.executablePath": "${workspaceRoot}/vendor/bin/phpcbf",
+		"phpcbf.onsave": true,
+		"editor.formatOnSave": false,
+		"editor.renderWhitespace": "all"
 	}
 }

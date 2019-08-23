@@ -194,13 +194,13 @@ wp core check-update && wp plugin list --update=available && wp theme list --upd
 Export Database from Docker
 
 ```sh
-docker exec mysql_conainer sh -c 'exec mysqldump wordpress -uroot' > ./docker-entrypoint-initdb.d/wordpress.sql
+docker exec wp-plugin-theme-template_mysql_1 sh -c 'exec mysqldump wordpress -uroot' > ./docker-entrypoint-initdb.d/wordpress.sql
 ```
 
 (Re) Import Database to Docker Container
 
 ```sh
-docker exec -i mysql_conainer sh -c 'exec mysql -uroot wordpress' < ./docker-entrypoint-initdb.d/wordpress.sql
+docker exec -i wp-plugin-theme-template_mysql_1 sh -c 'exec mysql -uroot wordpress' < ./docker-entrypoint-initdb.d/wordpress.sql
 ```
 
 Connect to Database from host  (e.g with Sequel Pro)

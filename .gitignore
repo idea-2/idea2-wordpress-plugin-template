@@ -14,3 +14,4 @@ node_modules/
 *.tar.gz
 *.zip
 *.log
+*.code-workspace
